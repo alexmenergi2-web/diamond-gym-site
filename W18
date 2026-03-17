@@ -1,0 +1,109 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Gym</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: white;
+        text-align: center;
+    }
+
+    header {
+        padding: 20px;
+        background: linear-gradient(90deg, #06b6d4, #3b82f6);
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .levels {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px;
+    }
+
+    .level-btn {
+        padding: 10px 20px;
+        border: none;
+        background: #1e293b;
+        color: white;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+    .level-btn:hover {
+        background: #3b82f6;
+    }
+
+    .content {
+        display: none;
+        padding: 30px;
+        max-width: 600px;
+        margin: auto;
+        background: #1e293b;
+        border-radius: 10px;
+    }
+
+    .active {
+        display: block;
+    }
+</style>
+</head>
+<body>
+
+<header>💎 Diamond Gym</header>
+
+<div class="levels">
+    <button class="level-btn" onclick="showLevel('beginner')">Beginner</button>
+    <button class="level-btn" onclick="showLevel('intermediate')">Intermediate</button>
+    <button class="level-btn" onclick="showLevel('advanced')">Advanced</button>
+</div>
+
+<div id="beginner" class="content active">
+    <h2>Beginner Level</h2>
+    <p>Perfect for new members. Learn basic exercises and build consistency.</p>
+    <ul>
+        <li>Bodyweight training</li>
+        <li>Light cardio</li>
+        <li>Basic strength</li>
+    </ul>
+</div>
+
+<div id="intermediate" class="content">
+    <h2>Intermediate Level</h2>
+    <p>Increase strength and endurance with structured workouts.</p>
+    <ul>
+        <li>Weight training</li>
+        <li>HIIT workouts</li>
+        <li>Core strength</li>
+    </ul>
+</div>
+
+<div id="advanced" class="content">
+    <h2>Advanced Level</h2>
+    <p>Push your limits with intense training programs.</p>
+    <ul>
+        <li>Heavy lifting</li>
+        <li>Advanced cardio</li>
+        <li>Personal coaching</li>
+    </ul>
+</div>
+
+<script>
+function showLevel(level) {
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(sec => sec.classList.remove('active'));
+
+    document.getElementById(level).classList.add('active');
+}
+</script>
+
+</body>
+</html>
