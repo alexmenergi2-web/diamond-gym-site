@@ -2,108 +2,104 @@ index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diamond Gym</title>
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0f172a;
-        color: white;
-        text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Gym - UNC Levels</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('images/unc-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
 
-    header {
-        padding: 20px;
-        background: linear-gradient(90deg, #06b6d4, #3b82f6);
-        font-size: 28px;
-        font-weight: bold;
-    }
+        h1 {
+            margin-top: 50px;
+            font-size: 3em;
+            text-shadow: 2px 2px 5px black;
+        }
 
-    .levels {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin: 20px;
-    }
+        #checkButton {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            background-color: #4B9CD3; /* UNC Blue */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-    .level-btn {
-        padding: 10px 20px;
-        border: none;
-        background: #1e293b;
-        color: white;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: 0.3s;
-    }
+        #checkButton:hover {
+            background-color: #357ABD;
+        }
 
-    .level-btn:hover {
-        background: #3b82f6;
-    }
+        .level-container {
+            margin-top: 50px;
+            display: none;
+        }
 
-    .content {
-        display: none;
-        padding: 30px;
-        max-width: 600px;
-        margin: auto;
-        background: #1e293b;
-        border-radius: 10px;
-    }
+        .level {
+            margin: 20px auto;
+            max-width: 400px;
+            border: 3px solid white;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: rgba(0,0,0,0.5);
+        }
 
-    .active {
-        display: block;
-    }
-</style>
+        .level img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .level h2 {
+            margin: 10px 0 0 0;
+        }
+
+        .level p {
+            margin: 5px 0 10px 0;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <h1>Diamond Gym - UNC Levels</h1>
+    <button id="checkButton">CHECK UNC'S LEVELS</button>
 
-<header>💎 Diamond Gym</header>
+    <div class="level-container" id="levelsContainer">
+        <div class="level" id="coolLevel">
+            <img src="images/unc-cool.jpg" alt="UNC Cool">
+            <h2>COOL</h2>
+            <p>20% Danger</p>
+        </div>
+        <div class="level" id="madLevel">
+            <img src="images/unc-mad.jpg" alt="UNC Mad">
+            <h2>MAD</h2>
+            <p>50% Danger</p>
+        </div>
+        <div class="level" id="insaneLevel">
+            <img src="images/unc-insane.jpg" alt="UNC Insane">
+            <h2>INSANE</h2>
+            <p>110% Danger</p>
+        </div>
+    </div>
 
-<div class="levels">
-    <button class="level-btn" onclick="showLevel('beginner')">Beginner</button>
-    <button class="level-btn" onclick="showLevel('intermediate')">Intermediate</button>
-    <button class="level-btn" onclick="showLevel('advanced')">Advanced</button>
-</div>
+    <script>
+        const button = document.getElementById('checkButton');
+        const levelsContainer = document.getElementById('levelsContainer');
 
-<div id="beginner" class="content active">
-    <h2>Beginner Level</h2>
-    <p>Perfect for new members. Learn basic exercises and build consistency.</p>
-    <ul>
-        <li>Bodyweight training</li>
-        <li>Light cardio</li>
-        <li>Basic strength</li>
-    </ul>
-</div>
+        button.addEventListener('click', () => {
+            // Show the levels container
+            levelsContainer.style.display = 'block';
 
-<div id="intermediate" class="content">
-    <h2>Intermediate Level</h2>
-    <p>Increase strength and endurance with structured workouts.</p>
-    <ul>
-        <li>Weight training</li>
-        <li>HIIT workouts</li>
-        <li>Core strength</li>
-    </ul>
-</div>
-
-<div id="advanced" class="content">
-    <h2>Advanced Level</h2>
-    <p>Push your limits with intense training programs.</p>
-    <ul>
-        <li>Heavy lifting</li>
-        <li>Advanced cardio</li>
-        <li>Personal coaching</li>
-    </ul>
-</div>
-
-<script>
-function showLevel(level) {
-    const sections = document.querySelectorAll('.content');
-    sections.forEach(sec => sec.classList.remove('active'));
-
-    document.getElementById(level).classList.add('active');
-}
-</script>
-
+            // Optional: Scroll to the levels
+            levelsContainer.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
